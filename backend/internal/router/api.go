@@ -40,12 +40,11 @@ func RunAPI(address string) error {
 	{
 		// unauthorize api
 
-		// đăng nhập đăng kí
 		userRoutes.POST("/login", userHandler.SignInUser)
 		userRoutes.POST("/register", userHandler.AddUser)
 		userRoutes.POST("/logout", nil)
 
-		// xem liên quan
+		// 
 		userRoutes.GET("/products", productHandler.GetAllProduct)
 		userRoutes.GET("/products/:id", productHandler.GetProduct)
 		userRoutes.GET("/categories/", productCategoryHandler.GetAllProductCategories)
@@ -60,8 +59,8 @@ func RunAPI(address string) error {
 		userAuth.GET("/info", userHandler.GetUser)
 		userAuth.PUT("/info", userHandler.UpdateUser)
 		userAuth.POST("/change-password", userHandler.ChangePassword)
-		// create order . chỉ cho tạo
-		userAuth.POST("/orders", orderHandler.OrderProduct) // gửi lên cái là chốt đơn.
+		// create order . 
+		userAuth.POST("/orders", orderHandler.OrderProduct) 
 
 	}
 
@@ -83,7 +82,7 @@ func RunAPI(address string) error {
 		adminAuth.DELETE("/products/:id", productHandler.DeleteProduct)
 		adminAuth.PUT("/products/:id", productHandler.UpdateProduct)
 
-		// order info. không cho del, k cho tạo
+		// order info. 
 		adminAuth.GET("/orders", orderHandler.GetAllOrderProduct)
 		adminAuth.GET("/orders/:id", orderHandler.GetOrderProduct)
 		adminAuth.PUT("/orders/:id", orderHandler.UpdateOrderProduct)
